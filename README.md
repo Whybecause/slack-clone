@@ -1,36 +1,28 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+## Commands
 
-First, run the development server:
+start next project: bun run dev
+run db: bunx convex dev
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Memo technos
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Bun (replace npm commands with bun or and npx with bunx)
+- shadcn for nextjs (install with bunx)
+- Convex: db + auth
+  See convex db: https://dashboard.convex.dev (login with main github)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Auth: Follow doc of convex auth
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+* For github providers, get callback url for convex and create new OAuth app in github developper settings.
+  See github OAuth App: https://github.com/settings/applications/2795292
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+* for google: go to google cloud console
+  -> create project
+  -> ecran de consentement OAuth: create app -> externe + ajouter un domaine autorisé (c'est l'http action url qu'on recupere dans convex, sans le <https://> )
+  -> google cloud -> credentials: create credentials ID client OAuth
+  -> authorized js origin = http://localhost:3003
+  -> uri de redirection autorisée = convex http action + callback = https://fleet-capybara-363.convex.site/api/auth/callback/google
+  -> copy client id et secret et run:
+  bunx convex env set AUTH_GOOGLE_ID <clientId>
+  bunx convex env set AUTH_GOOGLE_SECRET <secret>
