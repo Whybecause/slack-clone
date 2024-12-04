@@ -30,6 +30,7 @@ run db: bunx convex dev
   bunx convex env set AUTH_GOOGLE_ID <clientId>
   bunx convex env set AUTH_GOOGLE_SECRET <secret>
 
+* need to configure again providers with other config for production: use the domain name
 # production
 * docker compose up -d
 dockerised container that runs next (db convex is serverless)

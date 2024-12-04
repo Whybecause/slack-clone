@@ -6,7 +6,8 @@ COPY . .
 
 RUN npm install
 
-RUN npm run build
+# Also makes convex automatically handle setting the ENV variable to the cloud
+RUN npx convex deploy --cmd 'npm run build'
 
 # Étape 2: Production
 FROM node:18-slim
