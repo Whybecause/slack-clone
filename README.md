@@ -33,3 +33,5 @@ run db: bunx convex dev
 # production
 Managed on verb
 need to configure providers again with other config for production: use the domain name
+
+if trouble connecting convex to live domain, try to add env variable in vercel: NEXT_PUBLIC_CONVEX_URL
