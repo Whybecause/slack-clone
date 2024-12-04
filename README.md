@@ -1,5 +1,8 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+##
+Fix logou
+
 ## Commands
 
 start next project: bun run dev
@@ -13,6 +16,10 @@ run db: bunx convex dev
   See convex db: https://dashboard.convex.dev (login with main github)
 - Auth: Follow doc of convex auth
 - jotai: React state management library
+- react-use: usable hooks
+- lucide-react: icons
+- quill
+- nuqs: search param state management for react. Like useState but stored in the URL query string
 
 * For github providers, get callback url for convex and create new OAuth app in github developper settings.
   See github OAuth App: https://github.com/settings/applications/2795292

@@ -29,13 +29,23 @@ const SignUpCard = ({ setState }: SignUpCardProps) => {
   const [error, setError] = useState("");
   const [pending, setPending] = useState(false);
 
+  const MIN_PASSWORD_LENGTH = 8;
+
   const onPasswordSignUp = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     if (password !== confirmPassword) {
       setError("Passwords do not match");
       return;
     }
+
+    if (password?.length < MIN_PASSWORD_LENGTH) {
+      setError(`Password should have at least ${MIN_PASSWORD_LENGTH} characters.`);
+      return;
+    }
+
     setPending(true);
+
     signIn("password", { name, email, password, flow: "signUp" })
       .catch(() => {
         setError("Something went wrong.");
@@ -53,14 +63,14 @@ const SignUpCard = ({ setState }: SignUpCardProps) => {
   };
 
   return (
-    <Card className="w-full h-full p-8">
+    <Card className="flex flex-col w-full h-full p-8">
       <CardHeader className="px-0 pt-0">
         Sign up
         <CardDescription>Use email or service to continue</CardDescription>
       </CardHeader>
 
       {!!error && (
-        <div className="bg-destructive/15 p-3 rounded-md flex items-center gap-x-2 text-sm text-destructive mb-6">
+        <div className="max-w-[200px] bg-destructive/15 p-3 rounded-md flex items-center gap-x-2 text-sm text-destructive mb-6">
           <TriangleAlert className="size-4" />
           <p>{error}</p>
         </div>

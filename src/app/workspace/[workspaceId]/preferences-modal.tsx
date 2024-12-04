@@ -67,7 +67,6 @@ const PreferencesModal = ({
     const ok = await confirm();
 
     if (!ok) {
-      console.log('not ok =', ok);
       return;
     }
     removeWorkspace(
