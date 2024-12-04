@@ -18,6 +18,7 @@ const Header = ({
   return (
     <div className="bg-white border-b h-[49px] flex items-center px-4 overflow-hidden">
       <Button
+        onClick={onClick}
         variant="ghost"
         className="text-lg flex font-semibold px-2 overflow-hidden w-auto"
       >
