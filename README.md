@@ -1,19 +1,15 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
-##
-Fix logou
-
-## Commands
+## Commands: port 3003
 
 start next project: bun run dev
 run db: bunx convex dev
 
 ## Memo technos
+- Manage DB on your convex account
 
 - Bun (replace npm commands with bun or and npx with bunx)
 - shadcn for nextjs (install with bunx)
 - Convex: db + auth (solution serverless pour gestion de données)
-  See convex db: https://dashboard.convex.dev (login with main github)
+  See convex db: https://dashboard.convex.dev
 - Auth: Follow doc of convex auth
 - jotai: React state management library
 - react-use: usable hooks
@@ -28,8 +24,12 @@ run db: bunx convex dev
   -> create project
   -> ecran de consentement OAuth: create app -> externe + ajouter un domaine autorisé (c'est l'http action url qu'on recupere dans convex, sans le <https://> )
   -> google cloud -> credentials: create credentials ID client OAuth
-  -> authorized js origin = http://localhost:3003
+  -> authorized js origin = http://localhost:PORT
   -> uri de redirection autorisée = convex http action + callback = https://fleet-capybara-363.convex.site/api/auth/callback/google
   -> copy client id et secret et run:
   bunx convex env set AUTH_GOOGLE_ID <clientId>
   bunx convex env set AUTH_GOOGLE_SECRET <secret>
+
+# production
+* docker compose up -d
+dockerised container that runs next (db convex is serverless)

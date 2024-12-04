@@ -34,7 +34,7 @@ const JoinPage = () => {
           router.replace(`/workspace/${id}`);
           toast.success("Workspace joined");
         },
-        onError: (error) => {
+        onError: () => {
           toast.error("Failed to join workspace");
         },
       }
@@ -43,7 +43,7 @@ const JoinPage = () => {
 
   useEffect(() => {
     if (isMember) {
-      console.log('IS MEMBER');
+      console.log("IS MEMBER");
       router.push(`/workspace/${workspaceId}`);
     }
   }, [isMember, router, workspaceId]);
@@ -54,7 +54,7 @@ const JoinPage = () => {
     }
 
     return handleComplete(code);
-  }, [code]);
+  }, [code]); //eslint-disable-line
 
   if (isLoading) {
     return (

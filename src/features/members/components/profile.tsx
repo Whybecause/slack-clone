@@ -51,9 +51,9 @@ const Profile = ({ memberId, onClose }: ProfileProps) => {
     id: memberId,
   });
 
-  const { mutate: updateMember, isPending: isUpdatingMember } =
+  const { mutate: updateMember } =
     useUpdateMember();
-  const { mutate: removeMember, isPending: isRemovingMember } =
+  const { mutate: removeMember } =
     useRemoveMember();
 
   const avatarFallback = member?.user.name?.[0] ?? "M";

@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  slack-clone-prod:
+    build: .
+    ports:
+      - "3003:3003"
+    environment:
+      - NODE_ENV=production

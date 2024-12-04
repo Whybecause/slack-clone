@@ -29,8 +29,7 @@ const WorkspaceIdPage = () => {
 
   const channelId = useMemo(() => channels?.[0]?._id, [channels]);
   const isAdmin = useMemo(() => member?.role === "admin", [member?.role]);
-  // http://localhost:3003/join/k57a76vq0cne3sya0b067sk9w575mp7y
-  // c7712l
+
   useEffect(() => {
     if (
       workspaceLoading ||

@@ -21,7 +21,7 @@ interface InviteModalProps {
 }
 
 const InviteModal = ({ open, setOpen, name, joinCode }: InviteModalProps) => {
-  const { mutate, isPending } = useNewJoinCode();
+  const { mutate } = useNewJoinCode();
 
   const [ConfirmDialog, confirm] = useConfirm(
     "Are you sure?",
