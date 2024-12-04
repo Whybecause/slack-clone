@@ -113,7 +113,6 @@ export const get = query({
     paginationOpts: paginationOptsValidator,
   },
   handler: async (ctx, args) => {
-    console.log('MAJ');
     const userId = await getAuthUserId(ctx);
 
     if (!userId) {
