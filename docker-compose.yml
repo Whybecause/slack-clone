@@ -7,3 +7,12 @@ services:
       - "3003:3003"
     environment:
       - NODE_ENV=production
+    networks: # Need to connect to nginx network
+      - nginx_nginx_network
+
+# Careful: the network defined in the docker compose is "nginx_network",
+# but then docker names it by adding the name of the container, which is nginx,
+# so good to know: the name to target is "nginx_nginx_network"
+networks:
+  nginx_nginx_network:
+    external: true
